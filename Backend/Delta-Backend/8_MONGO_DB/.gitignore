@@ -1,0 +1,26 @@
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# npm files
+npm-debug.log*
+package-lock.json
+
+# Test files
+coverage/
+test-results.xml
+
+# Build files
+build/
+dist/

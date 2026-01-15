@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container for the post */
+        .post-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Styling for the post */
+        .post {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        .post h2 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #007bff;
+        }
+
+        .post p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .post .user-id {
+            font-size: 14px;
+            color: #888;
+        }
+        .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+    </style>
+</head>
+<body>
+    <div class="post-container">
+        <h1>Post Details</h1>
+
+        <div class="post">
+            <p class="user-id">User ID: <%= post.id %></p> 
+            <h2>Username: <%= post.username %></h2> 
+            <p>Content: <%= post.content %></p> 
+            <a href="/posts" class="button">Back</a>
+        </div>
+
+    </div>
+</body>
+</html>

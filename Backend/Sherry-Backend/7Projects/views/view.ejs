@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View File - <%= filename %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #bb86fc;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 20px;
+            max-width: 900px;
+            margin-bottom: 32px;
+        }
+
+        .column {
+            background-color: #1f1f1f;
+            color: #f5f5f5;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 15px;
+            width: 48%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .income-title {
+            color: green;
+        }
+
+        .expense-title {
+            color: red;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #bb86fc;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #9d68e1;
+        }
+    </style>
+</head>
+<body>
+    <h1>View File: <%= filename %></h1>
+
+    <div class="content">
+        <div class="column">
+            <h2 class="income-title">Income</h2>
+            <ul id="incomeList">
+                <% data.forEach(item => { if(item.type === "income") { %>
+                    <li><%= item.description %>: $<%= item.value %></li>
+                <% } }) %>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2 class="expense-title">Expenses</h2>
+            <ul id="expenseList">
+                <% data.forEach(item => { if(item.type === "expense") { %>
+                    <li><%= item.description %>: $<%= item.value %></li>
+                <% } }) %>
+            </ul>
+        </div>
+    </div>
+
+    <a class="back-btn" href="/">Back to File List</a>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1c1c1c;
+            color: #e0e0e0;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #2a2a2a;
+        }
+        tr:hover {
+            background-color: #555;
+        }
+        img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .add-user-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #444;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .add-user-btn:hover {
+            background-color: #555;
+        }
+        .edit-btn, .delete-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #e0e0e0;
+            text-decoration: none;
+        }
+        .edit-btn {
+            background-color: #007bff; /* Blue color */
+        }
+        .edit-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        .delete-btn {
+            background-color: #dc3545; /* Red color */
+        }
+        .delete-btn:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+        .btn-container {
+            display: flex;
+            gap: 10px; /* Space between buttons */
+        }
+    </style>
+</head>
+<body>
+
+<h1>User List</h1>
+
+<a href="/adduser" class="add-user-btn">Add User</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Avatar</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Birthdate</th>
+            <th>Registered At</th>
+            <th>Actions</th> <!-- New column for buttons -->
+        </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(user => { %>
+        <tr>
+            <td><img src="<%= user.avatar %>" alt="<%= user.username %>"></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= new Date(user.birthdate).toLocaleDateString() %></td>
+            <td><%= new Date(user.registered_at).toLocaleDateString() %></td>
+            <td>
+                <div class="btn-container">
+                    <a href="/edituser/<%= user.user_id %>" class="edit-btn">Edit</a>
+                   <form action="/deleteuser/<%= user.user_id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="delete-btn">Delete</button>
+                   </form>
+                </div>
+            </td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+</body>
+</html>

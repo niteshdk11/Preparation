@@ -1,0 +1,22 @@
+# Node.js modules
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Other
+*.env
+*.tmp
+coverage/
+dist/
+build/node_modules
